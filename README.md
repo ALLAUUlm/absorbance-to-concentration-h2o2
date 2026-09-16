@@ -33,6 +33,9 @@ data/
   model_data/         template file used by add_columns_and_metadatalines.ipynb
 ```
 
+See [PIPELINE.md](PIPELINE.md) for a description of how the raw spectra
+become the evaluated concentration-vs-time data and figures.
+
 ## Setup
 
 The notebooks import the `uvv` package from `scripts/uvv`. To point your
