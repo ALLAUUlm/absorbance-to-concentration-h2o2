@@ -1,0 +1,115 @@
+# Intended for development purposes
+starting time: 09:19:00 #hh:mm:ss
+extraction:
+  - repetition: 0
+    sample extracted:
+      unit: mL
+      value: 0.5
+      phase: aqueous
+    complexing agent:
+      name: TiOSO4
+      added:
+        unit: mL
+        value: 0.5
+    sample dilution:
+      name: H2O
+      added:
+        unit: mL
+        value: 0.0
+irradiation:
+  time:
+    unit: h
+    value: 0.0
+spot: 1 # see wiki http://
+
+system:
+  phases: [aqueous] # list of phases - name all the phases that are part of your solution except the catalyst, eg. aqueous, octanol, etc. to check if the system is multiphasic or not
+  purging:
+    time:
+      value: 10
+      unit: min
+    gas: O2
+  type: photochemical
+  batch: LN550001
+  material:
+    name: LN55
+    synthesis date: 202401
+    mass:
+      unit: mg
+      value: 15.000
+  wavelength:
+        unit: nm
+        value: 450
+  reactor:
+    volume: 88 #write total volume big ~ 88 mL, small ~ 32 mL total volume - TODO number reactors with unique identifier and upload pics on wiki
+    unit: mL
+    form: cylindric
+  Loading:
+    unit: g/L
+    value: 0.75
+  donor:
+    name: EtOH
+    value: 18
+    unit: mL
+  solvent:
+    name: H2O
+    value: 2
+    unit: mL
+  sonication:  # if not, do not provide a value for time
+    time:
+      value: 
+      unit: min
+  incident light intensity:
+    value: 50
+    unit: mW cm-2
+  thermostat: #if not, do not provide value for temperature - TODO - make unique identifiers for the two different thermostats in the lab
+    temperature:
+      value: 22.0
+      unit: deg_C
+
+curation:
+  process:
+  - role: experimentalist
+    name: Alexander Lange
+    orcid: https://orcid.org/0009-0005-7474-7160
+  - role: supervisor
+    name: Radim Beranek
+    orcid: 
+eln:
+  url: XXX # URL to the ELN describing the data
+
+echemdb loader: UVV # The name of a loader which can be used to load and convert data
+
+experimental:
+  tags:
+  - UVV
+  url: # For example: doi referring to a published work
+
+  instrumentation:
+  - type: LED-platform, ThorLED
+    manufacturer: XXX, ThorLabs
+    name: LEDp365, Thor365    # a unique name of the device
+
+  description: some description # A string or a new set of metadata
+
+projects: # Descriptor of projects linked to the data.
+
+- name: catalightB10
+  type: internal
+  url:   # link to the description of the project
+
+- name: SFB XXX
+  type: external
+  url:   # project homepage
+
+  grant number: XXX   # In case of numbers, add as string such as `00231`
+
+figure description:
+  fields:
+  - name: lambda
+    unit: nm
+    description: Excitation wavelength.
+    dimension: Lambda
+  - name: abs
+    unit: a.u.
+    description: Absorbance at respective wavelength

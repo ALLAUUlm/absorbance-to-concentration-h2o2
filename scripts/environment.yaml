@@ -1,0 +1,21 @@
+# This file lists the dependencies needed to build and test all of svv.
+# Create a conda environment with these dependencies preinstalled with:
+# conda env create -f environment.yml
+# or mamba (replacing conda with mamba)
+name: uvv-dev
+channels:
+  - conda-forge
+dependencies:
+  - astropy>=5,<6
+  - black>=23,<24
+  - unitpackage>=0.8.2,<0.9.0
+  - isort
+  - jupytext
+  - matplotlib
+  - pandas>=2,<3
+  - pip
+  - jupyter
+  - pylint>=3,<3.1
+  - pytest
+  - python
+  - ruyaml
