@@ -1,18 +1,15 @@
 # KPHIS photocatalytic H2O2 evaluation
 
-Self-contained copy of the UVV evaluation pipeline: scripts, notebooks, and the
-data actually used by them. Split out from `uvv_biphasic` (which remains the
-canonical git repository for the `uvv` package and holds additional data not
-needed here, e.g. `202507/`, `202508_repeating_trials/`).
+Self-contained UVV evaluation pipeline: scripts, notebooks, and the
+data actually used in the manuscript: https://chemrxiv.org/doi/full/10.26434/chemrxiv.15008563/v1.
 
 ## Layout
 
 ```
-scripts/           the uvv Python package (installable), copied from uvv_biphasic/uvv
-  uvv/
+scripts/           the uvv Python package (installable), 
   setup.py, pyproject.toml, environment.yaml
 
-docs/              notebooks, grouped as in uvv_biphasic/README.md
+docs/              notebooks, grouped by purpose:
   evaluation_docs/   current pipeline (run in this order):
                      add_columns_and_metadatalines.ipynb (one-time raw repair, historical)
                      conversion_to_single_batches.ipynb
@@ -28,10 +25,10 @@ data/
   evaluation/         aggregated statistics, plots, publication figures
   old_evaluation/     legacy flat evaluation output (bar_plots.ipynb, evaluation_to_material_overview_old.ipynb)
   raw_mrdga/          pre-repair raw dump + neuer_trial/ (frozen archive add_columns_and_metadatalines.ipynb builds)
-  pre_metadata_raw/          old measurements from before per-measurement YAML metadata existed
-                             (was "202402/"); input to adding_metadata/create_yaml_files_for_old_measurements.ipynb
+  pre_metadata_raw/          old measurements from before per-measurement YAML metadata existed;
+                             input to adding_metadata/create_yaml_files_for_old_measurements.ipynb
   pre_metadata_processed/    those same measurements after metadata was added and files renamed to the
-                             current convention (was "202402_proccesed_csv/"); also the working folder
+                             current convention; also the working folder
                              adding_metadata/sort_old_measurements.ipynb sorts in place
   model_data/         template file used by add_columns_and_metadatalines.ipynb
 ```
