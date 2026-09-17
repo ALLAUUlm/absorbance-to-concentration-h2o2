@@ -127,10 +127,10 @@ class UVVCollection(Collection):
 
         split_identifiers = [entry.identifier.split("'")[0] for entry in repeated_measurements]
         print("Split identifiers:", split_identifiers)
-        new_files = [f"../data/processed/{identifier}.{ext}" for identifier in split_identifiers for ext in ["csv", "csv.meta.json", "csv.meta.yaml"]]
+        new_files = [f"data/processed/{identifier}.{ext}" for identifier in split_identifiers for ext in ["csv", "csv.meta.json", "csv.meta.yaml"]]
         print("New files:", len(new_files))
 
-        destination_folder = "../data/evaluation/repeated_measurements/"
+        destination_folder = "data/evaluation/repeated_measurements/"
         for file in new_files:
             if not os.path.exists(os.path.join(destination_folder, os.path.basename(file))):
                 shutil.move(file, destination_folder)
