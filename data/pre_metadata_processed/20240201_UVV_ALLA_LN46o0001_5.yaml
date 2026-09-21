@@ -4,7 +4,7 @@ start time: 10:42:00
 irradiation:
   time:
     unit: h
-    value: 3.0
+    value: 4.0
 spot: 1 # see wiki http://
 extraction:
   - repetition: 0

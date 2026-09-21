@@ -1,10 +1,16 @@
 # Intended for development purposes
-date: '20240201'
-start time: 10:42:00
+# Template for a measurement that was repeated by taking a further amount
+# of the original sample and diluting it again (e.g. because the first
+# reading was too noisy or the signal was oversaturated). The resulting
+# file should be named like the original measurement but with the
+# repetition number's letter suffix appended (e.g. "..._1a.csv"/".yaml"
+# for a repeat of measurement "..._1").
+date: "2025-01-30"
+start time: "10:42:00"
 irradiation:
   time:
     unit: h
-    value: 6.0
+    value: 1.0
 spot: 1 # see wiki http://
 extraction:
   - repetition: 0
@@ -22,25 +28,36 @@ extraction:
       added:
         unit: mL
         value: 2.0
+  - repetition: 1
+    reason: noise #copy one of the following "noise" or "oversaturated"
+    sample extracted:
+      unit: mL
+      value: 1.0
+      phase: aqueous
+    sample dilution:
+      name: H2O
+      added:
+        unit: mL
+        value: 2.0
 
 system: # batch properties
   phases: [aqueous] # a list of phases apparent in the system, e.g. aqueous, octanol, etc.
   purging:
     time:
-      value: 10
+      value: 3
       unit: min
     gas: O2
   type: photochemical
-  batch: LN46o0001
+  batch: LN550023
   material:
-    name: LN46
-    synthesis date: '20231204'
+    name: LN55
+    synthesis date: '2023-02-xx'
     mass:
       unit: mg
       value: 15.003
   wavelength:
-    unit: nm
-    value: 450
+        unit: nm
+        value: 406
   reactor:
     volume: 88 #write total volume big ~ 88 mL, small ~ 32 mL total volume - TODO number reactors with unique identifier and upload pics on wiki
     unit: mL
@@ -70,12 +87,12 @@ system: # batch properties
 
 curation:
   process:
-    - role: experimentalist
-      name: Alexander Lange
-      orcid: https://orcid.org/0009-0005-7474-7160
-    - role: supervisor
-      name: Radim Beranek
-      orcid:
+  - role: experimentalist
+    name: Alexander Lange
+    orcid: https://orcid.org/0009-0005-7474-7160
+  - role: supervisor
+    name: Radim Beranek
+    orcid:
 eln:
   url: XXX # URL to the ELN describing the data
 
@@ -83,34 +100,34 @@ echemdb loader: UVV # The name of a loader which can be used to load and convert
 
 experimental:
   tags:
-    - UVV
+  - UVV
   url: # For example: doi referring to a published work
 
   instrumentation:
-    - type: LED-platform, ThorLED
-      manufacturer: XXX, ThorLabs
-      name: LEDp365, Thor365  # a unique name of the device
+  - type: LED-platform, ThorLED
+    manufacturer: XXX, ThorLabs
+    name: LEDp365, Thor365    # a unique name of the device
 
   description: some description # A string or a new set of metadata
 
 projects: # Descriptor of projects linked to the data.
 
-  - name: catalightB10
-    type: internal
-    url: # link to the description of the project
+- name: catalightB10
+  type: internal
+  url:   # link to the description of the project
 
-  - name: SFB XXX
-    type: external
-    url: # project homepage
+- name: SFB XXX
+  type: external
+  url:   # project homepage
 
-    grant number: XXX # In case of numbers, add as string such as `00231`
+  grant number: XXX   # In case of numbers, add as string such as `00231`
 
 figure description:
   fields:
-    - name: lambda
-      unit: nm
-      description: Excitation wavelength.
-      dimension: Lambda
-    - name: abs
-      unit: a.u.
-      description: Absorbance at respective wavelength
+  - name: lambda
+    unit: nm
+    description: Excitation wavelength.
+    dimension: Lambda
+  - name: abs
+    unit: a.u.
+    description: Absorbance at respective wavelength

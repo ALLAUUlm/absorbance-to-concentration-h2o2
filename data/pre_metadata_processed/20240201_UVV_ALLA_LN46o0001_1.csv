@@ -601,3 +601,164 @@ Wavelength (nm),Abs
 201.9816742,3.272814274
 200.9944458,3.281030893
 200.0071564,3.483760118
+
+LN46_0.75_1_0.5mL_s_0.5mL_Ti_0h_r,
+LN46_0.75_1_0.5mL_s_0.5mL_Ti_0h_r
+Collection Time: 2/1/2024 9:58:16 AM
+Operator Name  :
+Scan Version 5.0.0.999
+Parameter List :
+Instrument  Cary 60
+Instrument Version  2.00
+Start (nm)  800.0
+Stop (nm)  200.0
+X Mode  Nanometers
+Y Mode  Abs
+UV-Vis Scan Rate (nm/min)  600.00
+UV-Vis Data Interval (nm)  1.00
+UV-Vis Ave. Time (sec)  0.1000
+Beam Mode  Dual Beam
+Baseline Correction  On
+Baseline Type  Baseline correction
+Baseline File Name
+Baseline Std Ref File Name
+Cycle Mode  Off
+Method Log     :
+Method Name    :
+Date/Time stamp: 2/1/2024 9:15:53 AM
+Method Modifications:
+UVVIS SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common Interval nm Changed: 2/1/2024 9:54:01 AM, Old:     5.00, New:     1.00
+Baseline Correction Changed: 2/1/2024 9:54:01 AM, Old:0, New:1
+End Method Modifications
+<Current Wavelength> , 207.0
+
+LN46_0.75_2_0.5mL_s_0.5mL_Ti_0h,
+LN46_0.75_2_0.5mL_s_0.5mL_Ti_0h
+Collection Time: 2/1/2024 9:59:57 AM
+Operator Name  :
+Scan Version 5.0.0.999
+Parameter List :
+Instrument  Cary 60
+Instrument Version  2.00
+Start (nm)  800.0
+Stop (nm)  200.0
+X Mode  Nanometers
+Y Mode  Abs
+UV-Vis Scan Rate (nm/min)  600.00
+UV-Vis Data Interval (nm)  1.00
+UV-Vis Ave. Time (sec)  0.1000
+Beam Mode  Dual Beam
+Baseline Correction  On
+Baseline Type  Baseline correction
+Baseline File Name
+Baseline Std Ref File Name
+Cycle Mode  Off
+Method Log     :
+Method Name    :
+Date/Time stamp: 2/1/2024 9:15:53 AM
+Method Modifications:
+UVVIS SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common Interval nm Changed: 2/1/2024 9:54:01 AM, Old:     5.00, New:     1.00
+Baseline Correction Changed: 2/1/2024 9:54:01 AM, Old:0, New:1
+End Method Modifications
+<Current Wavelength> , 210.0
+
+LN46_0.75_2_0.5mL_s_0.5mL_Ti_0h_r,
+LN46_0.75_2_0.5mL_s_0.5mL_Ti_0h_r
+Collection Time: 2/1/2024 10:01:03 AM
+Operator Name  :
+Scan Version 5.0.0.999
+Parameter List :
+Instrument  Cary 60
+Instrument Version  2.00
+Start (nm)  800.0
+Stop (nm)  200.0
+X Mode  Nanometers
+Y Mode  Abs
+UV-Vis Scan Rate (nm/min)  600.00
+UV-Vis Data Interval (nm)  1.00
+UV-Vis Ave. Time (sec)  0.1000
+Beam Mode  Dual Beam
+Baseline Correction  On
+Baseline Type  Baseline correction
+Baseline File Name
+Baseline Std Ref File Name
+Cycle Mode  Off
+Method Log     :
+Method Name    :
+Date/Time stamp: 2/1/2024 9:15:53 AM
+Method Modifications:
+UVVIS SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common Interval nm Changed: 2/1/2024 9:54:01 AM, Old:     5.00, New:     1.00
+Baseline Correction Changed: 2/1/2024 9:54:01 AM, Old:0, New:1
+End Method Modifications
+<Current Wavelength> , 204.0
+
+LN46_0.75_3_0.5mL_s_0.5mL_Ti_0h,
+LN46_0.75_3_0.5mL_s_0.5mL_Ti_0h
+Collection Time: 2/1/2024 10:03:31 AM
+Operator Name  :
+Scan Version 5.0.0.999
+Parameter List :
+Instrument  Cary 60
+Instrument Version  2.00
+Start (nm)  800.0
+Stop (nm)  200.0
+X Mode  Nanometers
+Y Mode  Abs
+UV-Vis Scan Rate (nm/min)  600.00
+UV-Vis Data Interval (nm)  1.00
+UV-Vis Ave. Time (sec)  0.1000
+Beam Mode  Dual Beam
+Baseline Correction  On
+Baseline Type  Baseline correction
+Baseline File Name
+Baseline Std Ref File Name
+Cycle Mode  Off
+Method Log     :
+Method Name    :
+Date/Time stamp: 2/1/2024 9:15:53 AM
+Method Modifications:
+UVVIS SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common Interval nm Changed: 2/1/2024 9:54:01 AM, Old:     5.00, New:     1.00
+Baseline Correction Changed: 2/1/2024 9:54:01 AM, Old:0, New:1
+End Method Modifications
+<Current Wavelength> , 209.0
+
+LN46_0.75_4_0.5mL_s_0.5mL_Ti_0h,
+LN46_0.75_4_0.5mL_s_0.5mL_Ti_0h
+Collection Time: 2/1/2024 10:06:16 AM
+Operator Name  :
+Scan Version 5.0.0.999
+Parameter List :
+Instrument  Cary 60
+Instrument Version  2.00
+Start (nm)  800.0
+Stop (nm)  200.0
+X Mode  Nanometers
+Y Mode  Abs
+UV-Vis Scan Rate (nm/min)  600.00
+UV-Vis Data Interval (nm)  1.00
+UV-Vis Ave. Time (sec)  0.1000
+Beam Mode  Dual Beam
+Baseline Correction  On
+Baseline Type  Baseline correction
+Baseline File Name
+Baseline Std Ref File Name
+Cycle Mode  Off
+Method Log     :
+Method Name    :
+Date/Time stamp: 2/1/2024 9:15:53 AM
+Method Modifications:
+UVVIS SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common SAT Changed: 2/1/2024 9:53:59 AM, Old:0.0125, New:0.1000
+Common Interval nm Changed: 2/1/2024 9:54:01 AM, Old:     5.00, New:     1.00
+Baseline Correction Changed: 2/1/2024 9:54:01 AM, Old:0, New:1
+End Method Modifications
+<Current Wavelength> , 206.0
+

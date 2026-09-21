@@ -4,8 +4,8 @@ start time: 10:42:00
 irradiation:
   time:
     unit: h
-    value: 6.0
-spot: 1 # see wiki http://
+    value: 1.0
+spot: 3 # see wiki http://
 extraction:
   - repetition: 0
     sample extracted:
@@ -21,17 +21,17 @@ extraction:
       name: H2O
       added:
         unit: mL
-        value: 2.0
+        value: 0.0
 
 system: # batch properties
   phases: [aqueous] # a list of phases apparent in the system, e.g. aqueous, octanol, etc.
   purging:
     time:
-      value: 10
+      value: 3
       unit: min
     gas: O2
   type: photochemical
-  batch: LN46o0001
+  batch: LN46o0003
   material:
     name: LN46
     synthesis date: '20231204'

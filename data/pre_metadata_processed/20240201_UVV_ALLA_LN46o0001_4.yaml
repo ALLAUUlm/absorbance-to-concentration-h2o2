@@ -4,7 +4,7 @@ start time: 10:42:00
 irradiation:
   time:
     unit: h
-    value: 2.0
+    value: 3.0
 spot: 1 # see wiki http://
 extraction:
   - repetition: 0
@@ -21,7 +21,7 @@ extraction:
       name: H2O
       added:
         unit: mL
-        value: 0.0
+        value: 1.0
 
 system: # batch properties
   phases: [aqueous] # a list of phases apparent in the system, e.g. aqueous, octanol, etc.
