@@ -50,32 +50,41 @@ class UVVCollection(Collection):
         return sonication_col
     
     def remove_repeated(self):
+        # FIX: the previous implementation built `uniques` by checking, for
+        # each identifier, which *other* identifiers contain it as a
+        # substring ("identifier in identifier_"). That only looks in one
+        # direction: a "superstring" identifier such as "..._1a" is never a
+        # substring of anything else, so on *its own* outer-loop pass it
+        # always ended up in a group of size 1 and was appended unconditionally
+        # -- regardless of whether it had already lost the extraction-length
+        # comparison on the "..._1" identifier's pass. The two identifiers
+        # of a repeated measurement therefore both survived every time,
+        # silently turning this method into a no-op (verified against real
+        # data: 10 genuine repeats stayed in the "deduplicated" collection).
         # Collect all identifiers from entries in self
         identifiers = [entry.identifier for entry in self]
 
-        new_identifiers = []
+        seen = set()
+        keep = []
         for identifier in identifiers:
-            uniques = []
-            # Find all identifiers that contain the current identifier as a substring
-            for identifier_ in identifiers:
-                if identifier in identifier_:
-                    uniques.append(identifier_)
-            # If there are multiple matches, select the one with the longest extraction
-            if len(uniques) > 1:
-                extractions = {'identifier': '', 'len': 0}
-                for unique in uniques:
-                    len_extraction = len(self[unique].extraction)
-                    if len_extraction > extractions['len']:
-                        extractions = {'identifier': unique, 'len': len_extraction}
-                # Add the identifier with the longest extraction to the result
-                new_identifiers.append(extractions['identifier'])
-            else:
-                # If only one match, add it directly
-                new_identifiers.append(uniques[0])
+            if identifier in seen:
+                continue
+            # Find the full (symmetric) group of identifiers that are substrings
+            # of one another, e.g. "..._1" and "..._1a" belong to the same group.
+            group = [
+                identifier_
+                for identifier_ in identifiers
+                if identifier in identifier_ or identifier_ in identifier
+            ]
+            # Mark the whole group as handled so it contributes exactly one
+            # winner, however many of its members we encounter later.
+            seen.update(group)
+            # Keep the one with the longest extraction (first one seen on a tie)
+            best = max(group, key=lambda unique: len(self[unique].extraction))
+            keep.append(best)
 
-        # Filter self to only include entries with unique identifiers
-        # Uses pandas to get unique values from new_identifiers
-        return self.filter(lambda entry: entry.identifier in list(pd.unique(pd.Series(new_identifiers))))
+        # Filter self to only include entries with the selected identifiers
+        return self.filter(lambda entry: entry.identifier in keep)
 
     def process_and_save_batches(self, outdir):
         filtered_collections = {}
@@ -131,8 +140,18 @@ class UVVCollection(Collection):
         print("New files:", len(new_files))
 
         destination_folder = "data/evaluation/repeated_measurements/"
+        # FIX: this directory is never created elsewhere, so on a fresh
+        # checkout `shutil.move` below crashed with FileNotFoundError as
+        # soon as there was a genuine repeated measurement to file away
+        # (the actual crash this notebook was hitting on its 3rd-to-last cell).
+        os.makedirs(destination_folder, exist_ok=True)
         for file in new_files:
-            if not os.path.exists(os.path.join(destination_folder, os.path.basename(file))):
+            # FIX: guard the source side the same way the destination side
+            # was already guarded below, instead of letting a missing file
+            # crash the whole cell.
+            if not os.path.exists(file):
+                print(f"File {file} does not exist, skipping.")
+            elif not os.path.exists(os.path.join(destination_folder, os.path.basename(file))):
                 shutil.move(file, destination_folder)
                 print(f"Moved {file} to {destination_folder}")
             else:
