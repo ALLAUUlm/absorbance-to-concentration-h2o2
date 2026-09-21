@@ -3,6 +3,7 @@ import logging
 from unitpackage.collection import Collection
 from unitpackage.entry import Entry
 import pandas as pd
+import re
 import shutil
 import os
 
@@ -61,6 +62,20 @@ class UVVCollection(Collection):
         # of a repeated measurement therefore both survived every time,
         # silently turning this method into a no-op (verified against real
         # data: 10 genuine repeats stayed in the "deduplicated" collection).
+        #
+        # FIX (2): a plain substring check is also too loose in the other
+        # direction: "..._1" is a substring of "..._10", "..._11", "..._12",
+        # so any batch with 10+ measurements had its double-digit-indexed
+        # measurements wrongly treated as repeats of "..._1" and dropped
+        # entirely (verified against real data: this silently excluded the
+        # 48h/73.5h follow-up measurements of several batches). A repeat is
+        # specifically the same identifier with one or more trailing
+        # *letters* appended (e.g. "..._1" -> "..._1a"), never trailing
+        # digits, so match that pattern instead of a bare substring check.
+        def _is_repeat_pair(a, b):
+            shorter, longer = (a, b) if len(a) <= len(b) else (b, a)
+            return bool(re.fullmatch(re.escape(shorter) + r"[a-zA-Z]+", longer))
+
         # Collect all identifiers from entries in self
         identifiers = [entry.identifier for entry in self]
 
@@ -69,12 +84,13 @@ class UVVCollection(Collection):
         for identifier in identifiers:
             if identifier in seen:
                 continue
-            # Find the full (symmetric) group of identifiers that are substrings
-            # of one another, e.g. "..._1" and "..._1a" belong to the same group.
+            # Find the full (symmetric) group of identifiers that are the same
+            # measurement with a trailing-letter repeat suffix, e.g. "..._1"
+            # and "..._1a" belong to the same group.
             group = [
                 identifier_
                 for identifier_ in identifiers
-                if identifier in identifier_ or identifier_ in identifier
+                if identifier_ == identifier or _is_repeat_pair(identifier, identifier_)
             ]
             # Mark the whole group as handled so it contributes exactly one
             # winner, however many of its members we encounter later.
