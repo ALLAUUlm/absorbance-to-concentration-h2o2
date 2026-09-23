@@ -2,6 +2,8 @@
 
 Self-contained UVV evaluation pipeline: scripts, notebooks, and the
 data actually used in the manuscript: https://chemrxiv.org/doi/full/10.26434/chemrxiv.15008563/v1.
+The data-set of the photocatalytic data are uploaded and avialable at the Radar4Chem repository with the following doi: 10.22000/bq60bqgnhmsq35nk
+
 
 ## Layout
 
